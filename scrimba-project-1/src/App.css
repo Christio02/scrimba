@@ -1,5 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Tilt Neon", sans-serif;
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 25px;
+  background-color: #21222a;
+  height: 90px;
+}
+.nav--logo-text {
+  position: relative;
+  right: 19rem;
+  color: #61dafb;
+  font-weight: 700;
+  letter-spacing: -1.113px;
+  font-size: 22px;
+}
+
+.nav--title {
+  color: #deebf8;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav--icon {
+  margin-right: 2rem;
+  height: 30px;
 }
