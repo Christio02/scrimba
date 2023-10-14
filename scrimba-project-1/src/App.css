@@ -10,14 +10,13 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 30px 25px;
   background-color: #21222a;
   height: 90px;
+  gap: 1rem;
 }
 .nav--logo-text {
-  position: relative;
-  right: 19rem;
   color: #61dafb;
   font-weight: 700;
   letter-spacing: -1.113px;
@@ -33,4 +32,23 @@ body {
 .nav--icon {
   margin-right: 2rem;
   height: 30px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #282d35;
+  padding: 2rem;
+}
+
+.content-title {
+  color: #fff;
+}
+
+.content-bullets {
+  color: #fff;
+}
+
+.content-bullets li {
+  padding: 0.5rem;
 }
