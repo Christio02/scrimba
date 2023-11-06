@@ -2,6 +2,14 @@
   font-family: "Poppins", "sans-serif";
 }
 
+.gray {
+  color: gray;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .nav {
   width: 550px;
   height: 70px;
@@ -46,6 +54,46 @@
 .hero-container p {
   position: relative;
   right: 0.5rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5vh;
+}
+
+.card-container img {
+  max-width: 300px;
+}
+
+.card-image-container span {
+  background-color: #fff;
+  position: absolute;
+  left: 3.5rem;
+  top: 8rem;
+  border-radius: 2px;
+  width: 61px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-image-container p {
+  font-size: 10px;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.star {
+  width: 14px;
+  height: 14px;
 }
 
 @media screen {
