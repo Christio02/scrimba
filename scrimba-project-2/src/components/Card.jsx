@@ -1,27 +1,16 @@
-import React from "react";
-import Star from "../images/Star1.png";
-import Zaferes from "../images/zaferes.png";
+import PropTypes from "prop-types";
+import Star from "/images/Star1.png";
 
-/*
-Challenge: Build the Card component
-For now, hard-code in the data (like 
-the rating, title, price, etc.)
+Card.propTypes = {
+  img: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
+  reviewCount: PropTypes.number.isRequired,
+  country: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
 
-Notes:
-- Only render 1 instance (I already did this for you)
-- The star icon and photo (katie-zaferes.png) are in the images 
-  folder for your use
-- Make sure to include:
-    - image
-    - star icon (star.png), rating, and review count
-    - title
-    - cost/person
-- The main purpose of this challenge is to show you where our limitations
-  currently are, so don't worry about the fact that you're hard-coding all
-  this data into the component.
-*/
-
-export default function Card() {
+export default function Card(props) {
   return (
     <div className="card-container">
       <div className="card-image-container">
@@ -29,18 +18,18 @@ export default function Card() {
           <p>SOLD OUT</p>
         </span>
 
-        <img src={Zaferes}></img>
+        <img src={props.img}></img>
       </div>
 
       <div className="rating-container">
         <img src={Star} className="star"></img>
-        <span>5.0 </span>
-        <span className="gray"> (6) * </span>
-        <span className="gray">USA</span>
+        <span>{props.rating}</span>
+        <span className="gray"> ({props.reviewCount}) * </span>
+        <span className="gray">{props.country}</span>
       </div>
-      <p>Life lessons with Katie Zaferes</p>
+      <p>{props.title}</p>
       <p>
-        <span className="bold">From $136</span> / person
+        <span className="bold">From ${props.price}</span> / person
       </p>
     </div>
   );

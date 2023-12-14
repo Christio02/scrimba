@@ -65,8 +65,14 @@
 .card-container img {
   max-width: 300px;
 }
+.card-image-container {
+  position: relative;
+}
 
 .card-image-container span {
+  position: absolute;
+  top: 20rem;
+  left: 10px;
   background-color: #fff;
   position: absolute;
   left: 3.5rem;
@@ -77,7 +83,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .card-image-container p {
@@ -87,9 +92,7 @@
 .rating-container {
   display: flex;
   flex-direction: row;
-
 }
-
 
 .star {
   width: 14px;
