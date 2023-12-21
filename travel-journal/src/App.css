@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  background-color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+.navbar-container {
+  background: #f55a5a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.navbar-contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.navbar-container h2 {
+  margin-left: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 8rem;
+}
+
+.card-location-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-location-header > * {
+  margin-right: 0.5rem;
+}
+
+.card-location-header p {
+  font-weight: bolder;
+}
+
+.card-location-header a {
+  color: #333;
+  text-decoration: none;
+}
+
+.card-location-header a:hover {
+  text-decoration: underline;
+  color: #666;
+}
+
+.image-container {
+  margin-right: 2rem;
+}
+
+.image-container img {
+  width: 125px;
+  height: 168px;
+  flex-shrink: 0;
+  border-radius: 5px;
 }
