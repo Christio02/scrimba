@@ -8,12 +8,17 @@ const Card = (props) => {
         <img src={props.img} alt="Card Image" />
       </div>
       <div className="card-contents">
-        <div className="card-location-header">
+        <span className="card-location-header">
           <img src={LocLogo}></img>
           <p>{props.country}</p>
           <a href={props.mapsLink} target="_blank" rel="noreferrer">
             View on Google maps
           </a>
+        </span>
+        <div className="card-text">
+          <h3>{props.location}</h3>
+          <p>{props.dateRange}</p>
+          <p>{props.description}</p>
         </div>
       </div>
     </div>
