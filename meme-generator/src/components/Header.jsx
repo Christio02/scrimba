@@ -1,4 +1,4 @@
-import TrollFace from "../../public/troll-face.png";
+import TrollFace from "../images/troll-face.png";
 
 const Header = () => {
   return (
