@@ -1,15 +1,22 @@
-/**
- * Challenge:
- * - Create a Meme component.
- * - Inside the Meme component, render a styled form
- *   with our 2 inputs and the button.
- * - Don't worry about adding any functionality yet
- */
+import Memes from "../memesData";
 
+/**
+ * Challenge: Get a random image from the `memesData` array
+ * when the "new meme image" button is clicked.
+ *
+ * Log the URL of the image to the console. (Don't worry
+ * about displaying the image yet)
+ */
+const getRandomImage = () => {
+  const memeArray = Memes.data.memes;
+  let imageNum = Math.floor(Math.random() * memeArray.length);
+  let imageObj = memeArray[imageNum];
+  console.log(imageObj.url);
+};
 const Meme = () => {
   return (
     <div className="form-container">
-      <form className="meme-form">
+      <div className="meme-form">
         <div className="input-top">
           <label htmlFor="top-text">Top text</label>
           <input type="text" name="top-text" placeholder="Shut up"></input>
@@ -23,8 +30,8 @@ const Meme = () => {
             placeholder="And take my money"
           ></input>
         </div>
-      </form>
-      <button type="submit" name="submitBtn" className="button">
+      </div>
+      <button name="submitBtn" className="button" onClick={getRandomImage}>
         Get a new meme image 🖼
       </button>
     </div>
