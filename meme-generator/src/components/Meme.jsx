@@ -1,19 +1,38 @@
+import { useState } from "react";
 import Memes from "../memesData";
 
 /**
- * Challenge: Get a random image from the `memesData` array
- * when the "new meme image" button is clicked.
- *
- * Log the URL of the image to the console. (Don't worry
- * about displaying the image yet)
+ * Note: if you ever need the old value of state
+ * to help you determine the new value of state,
+ * you should pass a callback function to your
+ * state setter function instead of using
+ * state directly. This callback function will
+ * receive the old value of state as its parameter,
+ * which you can then use to determine your new
+ * value of state.
  */
-const getRandomImage = () => {
-  const memeArray = Memes.data.memes;
-  let imageNum = Math.floor(Math.random() * memeArray.length);
-  let imageObj = memeArray[imageNum];
-  console.log(imageObj.url);
-};
+
+/**
+ * Challenge: Save the random meme URL in state
+ * - Create new state called `memeImage` with an
+ *   empty string as default
+ * - When the getMemeImage function is called, update
+ *   the `memeImage` state to be the random chosen
+ *   image URL
+ * - Below the div.form, add an <img /> and set the
+ *   src to the new `memeImage` state you created
+ */
+
 const Meme = () => {
+  const getRandomImage = () => {
+    const memeArray = Memes.data.memes;
+    let imageNum = Math.floor(Math.random() * memeArray.length);
+    let imageObj = memeArray[imageNum];
+    setMemeImage(imageObj.url);
+    console.log(imageObj.url);
+  };
+  const [memeImage, setMemeImage] = useState("");
+
   return (
     <div className="form-container">
       <div className="meme-form">
@@ -34,6 +53,8 @@ const Meme = () => {
       <button name="submitBtn" className="button" onClick={getRandomImage}>
         Get a new meme image 🖼
       </button>
+
+      <img className="meme-image" src={memeImage}></img>
     </div>
   );
 };
