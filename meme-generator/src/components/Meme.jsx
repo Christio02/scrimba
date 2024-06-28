@@ -1,37 +1,39 @@
 import { useState } from "react";
-import Memes from "../memesData";
+import { default as memesData } from "../memesData";
 
 /**
- * Note: if you ever need the old value of state
- * to help you determine the new value of state,
- * you should pass a callback function to your
- * state setter function instead of using
- * state directly. This callback function will
- * receive the old value of state as its parameter,
- * which you can then use to determine your new
- * value of state.
- */
-
-/**
- * Challenge: Save the random meme URL in state
- * - Create new state called `memeImage` with an
- *   empty string as default
- * - When the getMemeImage function is called, update
- *   the `memeImage` state to be the random chosen
- *   image URL
- * - Below the div.form, add an <img /> and set the
- *   src to the new `memeImage` state you created
+ * Challenge: Update our state to save the meme-related
+ * data as an object called `meme`. It should have the
+ * following 3 properties:
+ * topText, bottomText, randomImage.
+ *
+ * The 2 text states can default to empty strings for now,
+ * amd randomImage should default to "http://i.imgflip.com/1bij.jpg"
+ *
+ * Next, create a new state variable  called `allMemeImages`
+ * which will default to `memesData`, which we imported above
+ *
+ * Lastly, update the `getMemeImage` function and the markup
+ * to reflect our newly reformed state object and array in the
+ * correct way.
  */
 
 const Meme = () => {
-  const getRandomImage = () => {
-    const memeArray = Memes.data.memes;
+  // const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg");
+  const [meme, setMeme] = useState({
+    toptext: "",
+    bottomtext: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
+
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
+
+  const getMemeImage = () => {
+    const memeArray = allMemeImages.data.memes;
     let imageNum = Math.floor(Math.random() * memeArray.length);
     let imageObj = memeArray[imageNum];
-    setMemeImage(imageObj.url);
-    console.log(imageObj.url);
+    setMeme((prevMeme) => ({ ...prevMeme, randomImage: imageObj.url }));
   };
-  const [memeImage, setMemeImage] = useState("");
 
   return (
     <div className="form-container">
@@ -50,11 +52,11 @@ const Meme = () => {
           ></input>
         </div>
       </div>
-      <button name="submitBtn" className="button" onClick={getRandomImage}>
+      <button name="submitBtn" className="button" onClick={getMemeImage}>
         Get a new meme image 🖼
       </button>
 
-      <img className="meme-image" src={memeImage}></img>
+      <img className="meme-image" src={meme.randomImage} alt={"meme"}></img>
     </div>
   );
 };
