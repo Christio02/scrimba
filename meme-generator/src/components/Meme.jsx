@@ -2,25 +2,17 @@ import { useState } from "react";
 import { default as memesData } from "../memesData";
 
 /**
- * Challenge: Update our state to save the meme-related
- * data as an object called `meme`. It should have the
- * following 3 properties:
- * topText, bottomText, randomImage.
- *
- * The 2 text states can default to empty strings for now,
- * amd randomImage should default to "http://i.imgflip.com/1bij.jpg"
- *
- * Next, create a new state variable  called `allMemeImages`
- * which will default to `memesData`, which we imported above
- *
- * Lastly, update the `getMemeImage` function and the markup
- * to reflect our newly reformed state object and array in the
- * correct way.
+ * Challenge:
+ * 1. Set up the text inputs to save to
+ *    the `topText` and `bottomText` state variables.
+ * 2. Replace the hard-coded text on the image with
+ *    the text being saved to state.
  */
+
 
 const Meme = () => {
   // const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg");
-  const [meme, setMeme] = useState({
+  const [memeData, setMemeData] = useState({
     toptext: "",
     bottomtext: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
@@ -32,31 +24,48 @@ const Meme = () => {
     const memeArray = allMemeImages.data.memes;
     let imageNum = Math.floor(Math.random() * memeArray.length);
     let imageObj = memeArray[imageNum];
-    setMeme((prevMeme) => ({ ...prevMeme, randomImage: imageObj.url }));
+    setMemeData((prevMeme) => ({ ...prevMeme, randomImage: imageObj.url }));
   };
+
+  const handleChange = (event) => {
+    const {name, value} = event.target
+    setMemeData(prevState =>(
+        {
+          ...prevState,
+          [name]: value
+
+        }
+    ))
+  }
 
   return (
     <div className="form-container">
       <div className="meme-form">
         <div className="input-top">
           <label htmlFor="top-text">Top text</label>
-          <input type="text" name="top-text" placeholder="Shut up"></input>
+          <input type="text" name="toptext" placeholder="Shut up" onChange={handleChange} value={memeData.toptext}></input>
         </div>
 
         <div className="input-bottom">
           <label htmlFor="bottom-text">Bottom text</label>
           <input
             type="text"
-            name="bottom-text"
+            name="bottomtext"
             placeholder="And take my money"
+            onChange={handleChange}
+            value={memeData.bottomtext}
           ></input>
         </div>
       </div>
       <button name="submitBtn" className="button" onClick={getMemeImage}>
         Get a new meme image 🖼
       </button>
+      <div className="meme">
+        <img className="meme-image" src={memeData.randomImage} alt={"memeData"}></img>
+        <h2 className="meme--text top">{memeData.toptext}</h2>
+        <h2 className="meme--text bottom">{memeData.bottomtext}</h2>
+      </div>
 
-      <img className="meme-image" src={meme.randomImage} alt={"meme"}></img>
     </div>
   );
 };

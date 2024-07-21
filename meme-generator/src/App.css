@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap");
-
+:root {
+  --gray-300: #d1d5db; /* Light gray color */
+  --white: #fff; /* White color */
+  --gray-700: #374151; /* Darker gray color */
+}
 * {
   font-family: "Karla", sans-serif;
 }
@@ -65,7 +69,7 @@ label {
   color: var(--gray-700, #374151);
   font-size: 22px;
   font-weight: 500;
-  line-height: 16.375px; /* 116.963% */
+  line-height: 16px; /* 116.963% */
 }
 .button {
   font-family: "Karla", sans-serif;
@@ -76,22 +80,59 @@ label {
   border-radius: 20px;
   background: linear-gradient(90deg, #711f8d 1.14%, #a818da 100%);
   transition: box-shadow 0.3s ease;
-  transition: box-shadow 0.3s ease;
   box-shadow: 3px 4px 0px 0px #711f8d;
+  margin-top: 2rem;
 }
 
 .button:hover {
-  background: linear-gradient(to left, #711f8d 5%, #a818da 100%);
-  background-color: #378de5;
+  background: #378de5 linear-gradient(to left, #711f8d 5%, #a818da 100%);
   box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
 .button:active {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow when clicked */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow when clicked */
   transform: translateY(2px); /* Move the button downward */
+}
+
+.meme {
+  position: relative;
+  margin-top: 4rem;
 }
 
 .meme-image {
   max-width: 100%;
+  border-radius: 3px;
+}
+.meme--text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+          2px 2px 0 #000,
+          -2px -2px 0 #000,
+          2px -2px 0 #000,
+          -2px 2px 0 #000,
+          0 2px 0 #000,
+          2px 0 0 #000,
+          0 -2px 0 #000,
+          -2px 0 0 #000,
+          2px 2px 5px #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
 }
